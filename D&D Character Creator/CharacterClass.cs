@@ -1,8 +1,25 @@
 ﻿using System;
 
-public class Class1
+public class CharacterClass
 {
-	public Class1()
+	public CharacterClass()
 	{
+	}
+
+	public enum Classes
+	{
+		ARTIFICER,
+		BARBARIAN,
+		BARD,
+		CLERIC,
+		DRUID,
+		FIGHTER,
+		MONK,
+		PALADIN,
+		RANGER,
+		ROGUE,
+		SORCERER,
+		WARLOCK,
+		WIZARD
 	}
 }
