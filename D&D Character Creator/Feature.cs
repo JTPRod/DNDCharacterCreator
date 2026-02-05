@@ -6,16 +6,7 @@ using System.Threading.Tasks;
 
 namespace D_D_Character_Creator
 {
-    internal class Item
+    internal class Feature
     {
-        public string name = "";
-
-        public Item(string name)
-        {
-            this.name = name;
-        }
     }
-
-
-    
 }
