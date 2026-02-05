@@ -1,8 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 
 public class Race
 {
-	public Race()
+	public Races raceName;
+	public int movementSpeed;
+	public Dictionary<string, int>
+    public List<string> languages = new List<string>();
+    public List<string> racialTraits = new List<string>();
+
+
+    public Race()
 	{
 	}
 
