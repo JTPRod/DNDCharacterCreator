@@ -2,16 +2,14 @@
 
 public class CharacterClass
 {
-	public CharacterClass()
-	{
-	//Basic stats
-	public Classes className;
-	public int hitDice;
+    //Basic stats
+    public Classes className;
+    public int hitDice;
     public int savingThrows;
-	public int skillNum;
-	public List<string> skills = new List<string> ();
-	public List<string> features = new List<string> ();
-	public List<Classes> subclasses = new List<Classes> ();
+    public int skillNum;
+    public List<string> skills = new List<string>();
+    public List<string> features = new List<string>();
+    public List<Classes> subclasses = new List<Classes>();
 
 
     //Proficiencies
@@ -23,7 +21,10 @@ public class CharacterClass
     //Equipment
     public static void listAllEquipment { }
 
-	//Class Specific Displays
+    //Class Specific Displays
+
+    public CharacterClass()
+	{
 	}
 
 	public enum Classes
