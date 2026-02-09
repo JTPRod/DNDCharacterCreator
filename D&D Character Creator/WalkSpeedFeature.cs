@@ -10,7 +10,7 @@ namespace D_D_Character_Creator
     {
         public int baseWalkSpeed = 0;
 
-        public BaseWalkSpeedFeature(string name, string description, int level, int baseWalkSpeed, int removeAtLevel = 100) : base(name, description, level, removeAtLevel)
+        public BaseWalkSpeedFeature(string name, string description, bool visible, int level, int baseWalkSpeed, int removeAtLevel = 100) : base(name, description, visible, level, removeAtLevel)
         {
             baseWalkSpeed = baseWalkSpeed;
         }
@@ -37,7 +37,7 @@ namespace D_D_Character_Creator
     {
         public int additionalWalkSpeed = 0;
 
-        public AdditionalWalkSpeedFeature(string name, string description, int level, int additionalWalkSpeed, int removeAtLevel = 100) : base(name, description, level, removeAtLevel)
+        public AdditionalWalkSpeedFeature(string name, string description, bool visible, int level, int additionalWalkSpeed, int removeAtLevel = 100) : base(name, description, visible, level, removeAtLevel)
         {
             this.additionalWalkSpeed = additionalWalkSpeed;
         }

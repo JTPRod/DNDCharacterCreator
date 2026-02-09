@@ -11,7 +11,7 @@ namespace D_D_Character_Creator
         public List<Spell> spells = new List<Spell>();
         public string modifier = "";
 
-        public AddSpellFeature(string name, string description, int level, List<Spell> spells, string modifier, int removeAtLevel = 100) : base(name, description, level, removeAtLevel)
+        public AddSpellFeature(string name, string description, bool visible, int level, List<Spell> spells, string modifier, int removeAtLevel = 100) : base(name, description, visible, level, removeAtLevel)
         {
             this.spells = spells;
             this.modifier = modifier;

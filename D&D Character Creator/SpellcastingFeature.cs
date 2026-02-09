@@ -14,7 +14,7 @@ namespace D_D_Character_Creator
         public Dictionary<SpellLevel, int> spellSlotsGained;
         public string spellcastingAbility = "";
 
-        public SpellcastingFeature(string name, string description, int level, List<Spell> spellList, int numCantripsToLearn, int numSpellsTolearn, Dictionary<SpellLevel, int> spellSlotsGained, string spellcastingAbility, int removeAtLevel = 100) : base(name, description, level, removeAtLevel)
+        public SpellcastingFeature(string name, string description, bool visible, int level, List<Spell> spellList, int numCantripsToLearn, int numSpellsTolearn, Dictionary<SpellLevel, int> spellSlotsGained, string spellcastingAbility, int removeAtLevel = 100) : base(name, description, visible, level, removeAtLevel)
         {
             this.spellList = spellList;
             this.numCantripsToLearn = numCantripsToLearn;

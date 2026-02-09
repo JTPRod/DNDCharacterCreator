@@ -10,13 +10,15 @@ namespace D_D_Character_Creator
     {
         public string name = "";
         public string description = "";
+        public bool visible = false;    //Is this feature visible in the character sheet
         public int level = -1;  //at what level does this take effect?
         public int removeAtLevel = 100;   //at what level is this effect removed? (if applicable)
 
-        public Feature(string name, string description, int level, int removeAtLevel = 100) 
+        public Feature(string name, string description, bool visible, int level, int removeAtLevel = 100) 
         {
             this.name = name;
             this.description = description;
+            this.visible = visible;
             this.level = level;
             this.removeAtLevel = removeAtLevel;
         }

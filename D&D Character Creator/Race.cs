@@ -5,7 +5,7 @@ public class Race
 {
 	public Races raceName;
 	public int movementSpeed;
-	public Dictionary<string, int>
+	public Dictionary<string, int> abilityScoreIncreases = new Dictionary<string, int>();
     public List<string> languages = new List<string>();
     public List<string> racialTraits = new List<string>();
 

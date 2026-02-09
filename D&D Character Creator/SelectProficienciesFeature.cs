@@ -20,42 +20,42 @@ namespace D_D_Character_Creator
         public int numberTools = 0;
 
         //for skills
-        public SelectProficienciesFeature(string name, string description, int level, List<Skill> skills, int numberToSelect, int removeAtLevel = 100) : base(name, description, level, removeAtLevel)
+        public SelectProficienciesFeature(string name, string description, bool visible, int level, List<Skill> skills, int numberToSelect, int removeAtLevel = 100) : base(name, description, visible, level, removeAtLevel)
         {
             this.skills = skills;
             this.numberSkills = numberToSelect;
         }
 
         //for weapons
-        public SelectProficienciesFeature(string name, string description, int level, List<WeaponType> weapons, int numberToSelect, int removeAtLevel = 100) : base(name, description, level, removeAtLevel)
+        public SelectProficienciesFeature(string name, string description, bool visible, int level, List<WeaponType> weapons, int numberToSelect, int removeAtLevel = 100) : base(name, description, visible, level, removeAtLevel)
         {
             this.weaponTypes = weapons;
             this.numberWeapons = numberToSelect;
         }
 
         //for items
-        public SelectProficienciesFeature(string name, string description, int level, List<Item> items, int numberToSelect, int removeAtLevel = 100) : base(name, description, level, removeAtLevel)
+        public SelectProficienciesFeature(string name, string description, bool visible, int level, List<Item> items, int numberToSelect, int removeAtLevel = 100) : base(name, description, visible, level, removeAtLevel)
         {
             this.items = items;
             this.numberItems = numberToSelect;
         }
 
         //for armors
-        public SelectProficienciesFeature(string name, string description, int level, List<ArmorWeight> armors, int numberToSelect, int removeAtLevel = 100) : base(name, description, level, removeAtLevel)
+        public SelectProficienciesFeature(string name, string description, bool visible, int level, List<ArmorWeight> armors, int numberToSelect, int removeAtLevel = 100) : base(name, description, visible, level, removeAtLevel)
         {
             this.armors = armors;
             this.numberArmor = numberToSelect;
         }
 
         //for tools
-        public SelectProficienciesFeature(string name, string description, int level, List<string> tools, int numberToSelect, int removeAtLevel = 100) : base(name, description, level, removeAtLevel)
+        public SelectProficienciesFeature(string name, string description, bool visible, int level, List<string> tools, int numberToSelect, int removeAtLevel = 100) : base(name, description, visible, level, removeAtLevel)
         {
             this.tools = tools;
             this.numberTools = numberToSelect;
         }
 
         //A combination
-        public SelectProficienciesFeature(string name, string description, int level, List<Skill> skills, int skillSelectionLimit, List<WeaponType> weapons, int weaponSelectionLimit, List<Item> items, int itemSelectionLimit, List<ArmorWeight> armors, int armorSelectionLimit, List<string> tools, int toolSelectionLimit, int removeAtLevel = 100) : base(name, description, level, removeAtLevel)
+        public SelectProficienciesFeature(string name, string description, bool visible, int level, List<Skill> skills, int skillSelectionLimit, List<WeaponType> weapons, int weaponSelectionLimit, List<Item> items, int itemSelectionLimit, List<ArmorWeight> armors, int armorSelectionLimit, List<string> tools, int toolSelectionLimit, int removeAtLevel = 100) : base(name, description, visible, level, removeAtLevel)
         {
             this.skills = skills;
             this.numberSkills = skillSelectionLimit;

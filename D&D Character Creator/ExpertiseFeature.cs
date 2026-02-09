@@ -10,7 +10,7 @@ namespace D_D_Character_Creator
     {
         public int numberOfExpertise = 0;
 
-        public ExpertiseFeature(string name, string description, int level, int numberOfExpertise, int removeAtLevel = 100) : base(name, description, level, removeAtLevel)
+        public ExpertiseFeature(string name, string description, bool visible, int level, int numberOfExpertise, int removeAtLevel = 100) : base(name, description, visible, level, removeAtLevel)
         {
             this.numberOfExpertise = numberOfExpertise;
         }

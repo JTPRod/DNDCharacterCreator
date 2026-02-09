@@ -10,7 +10,7 @@ namespace D_D_Character_Creator
     {
         public List<Feature> Features;
 
-        public AddOtherFeaturesFeature(string name, string description, int level, List<Feature> features, int removeAtLevel = 100) : base(name, description, level, removeAtLevel)
+        public AddOtherFeaturesFeature(string name, string description, bool visible, int level, List<Feature> features, int removeAtLevel = 100) : base(name, description, visible, level, removeAtLevel)
         {
             Features = features;
         }

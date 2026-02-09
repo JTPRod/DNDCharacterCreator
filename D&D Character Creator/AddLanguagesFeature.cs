@@ -10,7 +10,7 @@ namespace D_D_Character_Creator
     {
         public List<string> Languages;
 
-        public AddLanguagesFeature(string name, string description, int level, List<string> languages, int removeAtLevel = 100) : base(name, description, level, removeAtLevel)
+        public AddLanguagesFeature(string name, string description, bool visible, int level, List<string> languages, int removeAtLevel = 100) : base(name, description, visible, level, removeAtLevel)
         {
             Languages = languages;
         }
@@ -43,7 +43,7 @@ namespace D_D_Character_Creator
         public List<string> Languages;
         public int numLanguagesToSelect = 0;
 
-        public SelectLanguagesFeature(string name, string description, int level, List<string> languages, int numLanguagesToSelect, int removeAtLevel = 100) : base(name, description, level, removeAtLevel)
+        public SelectLanguagesFeature(string name, string description, bool visible, int level, List<string> languages, int numLanguagesToSelect, int removeAtLevel = 100) : base(name, description, visible, level, removeAtLevel)
         {
             Languages = languages;
             this.numLanguagesToSelect = numLanguagesToSelect;

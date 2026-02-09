@@ -19,7 +19,7 @@ public class CharacterClass
 
 
     //Equipment
-    public static void listAllEquipment { }
+    //public static void listAllEquipment { }
 
     //Class Specific Displays
 

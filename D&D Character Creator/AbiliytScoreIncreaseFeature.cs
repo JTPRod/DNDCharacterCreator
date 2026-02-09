@@ -10,7 +10,7 @@ namespace D_D_Character_Creator
     {
         public int pointsToAdd = 0;
 
-        public AbiliytScoreIncreaseFeature(string name, string description, int level, int pointsToAdd, int removeAtLevel = 100) : base(name, description, level, removeAtLevel)
+        public AbiliytScoreIncreaseFeature(string name, string description, bool visible, int level, int pointsToAdd, int removeAtLevel = 100) : base(name, description, visible, level, removeAtLevel)
         {
             this.pointsToAdd = pointsToAdd;
         }
@@ -37,7 +37,7 @@ namespace D_D_Character_Creator
     {
         public Dictionary<string, int> setScoreImprovemts = new Dictionary<string, int>();
 
-        public SetAbiliytScoreIncreaseFeature(string name, string description, int level, Dictionary<string, int> setScoreImprovements, int removeAtLevel = 100) : base(name, description, level, removeAtLevel)
+        public SetAbiliytScoreIncreaseFeature(string name, string description, bool visible, int level, Dictionary<string, int> setScoreImprovements, int removeAtLevel = 100) : base(name, description, visible, level, removeAtLevel)
         {
             this.setScoreImprovemts = setScoreImprovements;
         }

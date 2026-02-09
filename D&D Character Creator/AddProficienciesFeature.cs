@@ -15,37 +15,37 @@ namespace D_D_Character_Creator
         public List<string> tools;
 
         //Skills
-        public AddProficienciesFeature(string name, string description, int level, List <Skill> skills, int removeAtLevel = 100) : base(name, description, level, removeAtLevel)
+        public AddProficienciesFeature(string name, string description, bool visible, int level, List <Skill> skills, int removeAtLevel = 100) : base(name, description, visible, level, removeAtLevel)
         {
             this.skills = skills;
         }
 
         //Weapons
-        public AddProficienciesFeature(string name, string description, int level, List<WeaponType> weapons, int removeAtLevel = 100) : base(name, description, level, removeAtLevel)
+        public AddProficienciesFeature(string name, string description, bool visible, int level, List<WeaponType> weapons, int removeAtLevel = 100) : base(name, description, visible, level, removeAtLevel)
         {
             this.weaponTypes = weaponTypes;
         }
 
         //items (ie shields)
-        public AddProficienciesFeature(string name, string description, int level, List<Item> items, int removeAtLevel = 100) : base(name, description, level, removeAtLevel)
+        public AddProficienciesFeature(string name, string description, bool visible, int level, List<Item> items, int removeAtLevel = 100) : base(name, description, visible, level, removeAtLevel)
         {
             this.items = items;
         }
 
         //Armors
-        public AddProficienciesFeature(string name, string description, int level, List<ArmorWeight> armors, int removeAtLevel = 100) : base(name, description, level, removeAtLevel)
+        public AddProficienciesFeature(string name, string description, bool visible, int level, List<ArmorWeight> armors, int removeAtLevel = 100) : base(name, description, visible, level, removeAtLevel)
         {
             this.armors = armors;
         }
 
         //Tools
-        public AddProficienciesFeature(string name, string description, int level, List<string> tools, int removeAtLevel = 100) : base(name, description, level, removeAtLevel)
+        public AddProficienciesFeature(string name, string description, bool visible, int level, List<string> tools, int removeAtLevel = 100) : base(name, description, visible, level, removeAtLevel)
         {
             this.tools = tools;
         }
 
         //A combination
-        public AddProficienciesFeature(string name, string description, int level, List<Skill> skills, List<WeaponType> weapons, List<Item> items, List<ArmorWeight> armors, List<string> tools, int removeAtLevel = 100) : base(name, description, level, removeAtLevel)
+        public AddProficienciesFeature(string name, string description, bool visible, int level, List<Skill> skills, List<WeaponType> weapons, List<Item> items, List<ArmorWeight> armors, List<string> tools, int removeAtLevel = 100) : base(name, description, visible, level, removeAtLevel)
         {
             this.skills = skills;
             this.weaponTypes = weapons;
