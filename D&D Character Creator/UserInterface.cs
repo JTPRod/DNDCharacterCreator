@@ -2,31 +2,44 @@
 
 public class UserInterface
 {
-	public static void mainMenu()
-	{
+    public static void MainMenu()
+    {
+        Console.WriteLine("\nWelcome to DND! We have dungeons AND dragons, can you believe it?\n");
+        Console.WriteLine("(1) - Create a Character");
+        Console.WriteLine("(2) - View Existing Characters");
+        Console.WriteLine("(3) - Delete a Character");
+        Console.WriteLine("(0) - Exit");
+        Console.Write("\nEnter a number: ");
 
-		public List<CharacterObject> characterList = new List<CharacterObject>();
-		Console.WriteLine("\nWelcome to DND! We have dungeons AND dragons, can you believe it?\n\nWould you like to\n" +
-			"(1) - Create a Character\n" +
-			"(2) - View Existing Characters\n" +
-			"(3) - Delete a Character\n" +
-			"(0) - Exit\n" +
-			"\nPlease enter the corresponding number to select\n> ");
-		int response = Console.ReadLine();
+        string input = Console.ReadLine();
+        int response;
 
-	switch (response){
-		case 1:
-			promptCreateCharacter();
-		case 2:
-			promptViewCharacter();
-		case 3:
-			promptDeleteCharacter();
-		default:
-			exit();
-	}
+        if (int.TryParse(input, out response))
+        {
+            switch (response)
+            {
+                case 1:
+                    promptCreateCharacter();
+                    break;
+
+                case 2:
+                    promptViewCharacter();
+                    break;
+
+                case 3:
+                    promptDeleteCharacter();
+                    break;
+
+                default:
+                    Environment.Exit(0);
+                    break;
+            }
+        }
+    }
 
 
-	public static void promptCreateCharacter()
+
+    public static void promptCreateCharacter()
 	{
 	}
 
