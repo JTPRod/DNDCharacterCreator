@@ -3,9 +3,10 @@
 public class CharacterClass
 {
     //Basic stats
-    public Classes className;
+    public Classes classType;
+    public string className;
     public int hitDice;
-    public int savingThrows;
+    public List<string> savingThrows = new List<string>();
     public int skillNum;
     public List<string> skills = new List<string>();
     public List<string> features = new List<string>();

@@ -3,9 +3,9 @@
 public class Dice
 {
 	private static Random rand = new Random();
-    private int result;
+    private static int result;
 
-	public int Roll(int faces)
+	public static int Roll(int faces)
 	{
 		int min = 1;
 		int max = faces + 1;
@@ -13,7 +13,7 @@ public class Dice
         return result;
     }
 
-	public int getResult()
+	public static int getResult()
 	{
 		return result;
 	}
