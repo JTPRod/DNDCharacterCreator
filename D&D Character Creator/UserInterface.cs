@@ -31,15 +31,83 @@ public class UserInterface
 	{
 	}
 
-	public static void promptDeleteCharacter(character)
+public static void PromptDeleteCharacter()
+{
+    // If there are no characters, stop
+    if (characterList.Count == 0)
     {
-	//print out only character NAMES, pick one to delete
+        Console.WriteLine("There are no characters to delete.");
+        return;
     }
-	
-public static void promptViewCharacter(character)
+
+    // Show the characters with numbers
+    for (int i = 0; i < characterList.Count; i++)
     {
-	//print out only character NAMES, pick one to see full sheet
+        Console.WriteLine((i + 1) + ". " + characterList[i].name);
     }
+
+    Console.Write("Type the number of the character to delete: ");
+    string input = Console.ReadLine();
+    int number;
+
+    if (int.TryParse(input, out number))
+    {
+        int index = number - 1;
+        if (index >= 0 && index < characterList.Count)
+        {
+            deleteCharacter(characterList[index]);
+            Console.WriteLine("Character deleted!");
+        }
+        else
+        {
+            Console.WriteLine("That number is not on the list.");
+        }
+    }
+    else
+    {
+        Console.WriteLine("You must type a number.");
+    }
+}
+
+
+
+public static void promptViewCharacter()
+{
+    // If there are no characters, stop
+    if (characterList.Count == 0)
+    {
+        Console.WriteLine("There are no characters to delete.");
+        return;
+    }
+
+    // Show the characters with numbers
+    for (int i = 0; i < characterList.Count; i++)
+    {
+        Console.WriteLine((i + 1) + ". " + characterList[i].name);
+    }
+
+    Console.Write("Type the number of the character to view: ");
+    string input = Console.ReadLine();
+    int number;
+
+    if (int.TryParse(input, out number))
+    {
+        int index = number - 1;
+        if (index >= 0 && index < characterList.Count)
+        {
+            viewCharacter(characterList[index]);
+            Console.WriteLine("Character deleted!");
+        }
+        else
+        {
+            Console.WriteLine("That number is not on the list.");
+        }
+    }
+    else
+    {
+        Console.WriteLine("You must type a number.");
+    }
+}
 
 	public static void createCharacter()
 	{
@@ -47,12 +115,12 @@ public static void promptViewCharacter(character)
 		characterList.add(character);
 	}
     
-	public static void viewCharacters()
+	public static void viewCharacter(character character)
     {
-		Console.WriteLine(characterList);
+		Console.WriteLine(character);
     }
 
-	public static void deleteCharacter(character)
+	public static void deleteCharacter(character character)
     {
 		characterList.remove(character);
     }
