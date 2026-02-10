@@ -13,7 +13,6 @@ public class UserInterface
 			"(0) - Exit\n" +
 			"\nPlease enter the corresponding number to select\n> ");
 		int response = Console.ReadLine();
-	}
 
 	switch (response){
 		case 1:
