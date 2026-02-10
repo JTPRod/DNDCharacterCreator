@@ -37,8 +37,6 @@ public class UserInterface
         }
     }
 
-
-
     public static void promptCreateCharacter()
 	{
 	}
@@ -129,7 +127,7 @@ public static void promptViewCharacter()
     
 	public static void viewCharacter(character character)
     {
-		Console.WriteLine(character);
+		Console.WriteLine(character.ToString());
     }
 
 	public static void deleteCharacter(character character)
