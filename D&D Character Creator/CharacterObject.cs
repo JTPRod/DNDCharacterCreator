@@ -3,6 +3,7 @@ using System;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
+
 public class CharacterObject
 {
 	//basic stats
@@ -11,7 +12,7 @@ public class CharacterObject
 	public CharacterClass characterClass = null;
 	public int profBonus = 0;
 	public int AC = 0;
-	public int init = 0;
+	public int initiative = 0;
 	public int speed = 0;
 	public int maxHP = 0;
 	public int level = 0;
@@ -33,6 +34,7 @@ public class CharacterObject
 
     //other
     //skillList
+    List<Skill> skills = new List<Skill>();
     //featuresAndTraits
     //languages
     //toolProf
@@ -51,14 +53,24 @@ public class CharacterObject
     public CharacterObject(string name)
 	{
         this.name = name;
+
+        List<Skill> listCopy = Database.SkillDatabase;
+
+        for (int i = 0; i < listCopy.Count; i++)
+        {
+            skills.Add(listCopy[i]);
+        }
+
 	}
 
     public void CreateCharacter()
     {
         SelectRace();
         SelectedClass();
+        SkillCalculation();
 
         this.level = 1;
+        this.profBonus = 2;
     }
 
     public void SelectRace()
@@ -185,19 +197,23 @@ public class CharacterObject
                 }
 
                 //Assign Stats
-                strScore += StatAssignment(statRolls, "Strength", strScore);
-                dexScore += StatAssignment(statRolls, "Dexterity", dexScore);
-                conScore += StatAssignment(statRolls, "Constitution", conScore);
-                intScore += StatAssignment(statRolls, "Intelligence", intScore);
-                wisScore += StatAssignment(statRolls, "Wisdom", wisScore);
-                chaScore += StatAssignment(statRolls, "Charisma", chaScore);
+                this.strScore += StatAssignment(statRolls, "Strength", strScore);
+                this.dexScore += StatAssignment(statRolls, "Dexterity", dexScore);
+                this.conScore += StatAssignment(statRolls, "Constitution", conScore);
+                this.intScore += StatAssignment(statRolls, "Intelligence", intScore);
+                this.wisScore += StatAssignment(statRolls, "Wisdom", wisScore);
+                this.chaScore += StatAssignment(statRolls, "Charisma", chaScore);
 
-                strMod = CalculateStatModifier(strScore);
-                dexMod = CalculateStatModifier(dexScore);
-                conMod = CalculateStatModifier(conScore);
-                intMod = CalculateStatModifier(intScore);
-                wisMod = CalculateStatModifier(wisScore);
-                chaMod = CalculateStatModifier(chaScore);
+                this.strMod = CalculateStatModifier(strScore);
+                this.dexMod = CalculateStatModifier(dexScore);
+                this.conMod = CalculateStatModifier(conScore);
+                this.intMod = CalculateStatModifier(intScore);
+                this.wisMod = CalculateStatModifier(wisScore);
+                this.chaMod = CalculateStatModifier(chaScore);
+
+
+                //Calculate innitiative
+                this.initiative = this.dexMod;
             }
         }
     }
@@ -240,7 +256,6 @@ public class CharacterObject
                 statRolls.Remove(statRoll);
                 return statRoll;
     }
-
 
     public int CalculateStatModifier(int statScore)
     {
@@ -296,6 +311,35 @@ public class CharacterObject
 
 
 
+    public void SkillCalculation()
+    {
+        foreach(Skill skill in skills)
+        {
+            switch (skill.getStat())
+            {
+                case Stat.STRENGTH:
+                    skill.CalculateModifier(strMod, profBonus);
+                    break;
+                case Stat.DEXTERITY:
+                    skill.CalculateModifier(dexMod, profBonus);
+                    break;
+                case Stat.CONSTITUTION:
+                    skill.CalculateModifier(conMod, profBonus);
+                    break;
+                case Stat.INTELLIGENCE:
+                    skill.CalculateModifier(intMod, profBonus);
+                    break;
+                case Stat.WISDOM:
+                    skill.CalculateModifier(wisMod, profBonus);
+                    break;
+                case Stat.CHARISMA:
+                    skill.CalculateModifier(chaMod, profBonus);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
 
 
 
@@ -307,8 +351,11 @@ public class CharacterObject
         sb.Append("\n  Race: " + this.race.raceName);
         sb.Append("\n  Class: " + this.characterClass.className);
         sb.Append("\n  Level: " + this.level);
-        sb.Append("\n  Base Speed: " + this.speed + "ft");
+        sb.Append("\n  Speed: " + this.speed + "ft");
+        sb.Append("\n  Proficiency Bonus: +" + this.profBonus);
+        sb.Append("\n  Initiative: +" + this.initiative);
         sb.Append("\n  Hit Dice: " + this.level + "D" + this.hitDice);
+
         sb.Append("\n  ___Stats___");
         sb.Append("\n    Strength Score: " + this.strScore + " ( +" + this.strMod + " )");
         sb.Append("\n    Dexterity Score: " + this.dexScore + " ( +" + this.dexMod + " )");
@@ -316,6 +363,18 @@ public class CharacterObject
         sb.Append("\n    Intelligence Score: " + this.intScore + " ( +" + this.intMod + " )");
         sb.Append("\n    Wisdom Score: " + this.wisScore + " ( +" + this.wisMod + " )");
         sb.Append("\n    Charisma Score: " + this.chaScore + " ( +" + this.chaMod + " )");
+
+        sb.Append("\n  ___Skill___");
+        foreach(Skill skill in skills)
+        {
+            sb.Append("\n    " + skill.getName() + ": " + skill.getModifier());
+            if(skill.getProficient())
+            {
+                sb.Append(" || (Proficient)");
+                if (skill.getExpertise()) sb.Append(" + Expertise");
+            }
+        }
+
 
 
 
