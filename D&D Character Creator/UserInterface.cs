@@ -9,7 +9,7 @@ public class UserInterface
         Console.WriteLine("(2) - View Existing Characters");
         Console.WriteLine("(3) - Delete a Character");
         Console.WriteLine("(0) - Exit");
-        Console.Write("\nEnter a number: ");
+        Console.WriteLine("Enter a number\n> ");
 
         string input = Console.ReadLine();
         int response;
@@ -27,7 +27,7 @@ public class UserInterface
                     break;
 
                 case 3:
-                    promptDeleteCharacter();
+                    PromptDeleteCharacter();
                     break;
 
                 default:
@@ -39,9 +39,14 @@ public class UserInterface
 
     public static void promptCreateCharacter()
 	{
+        Console.WriteLine("Welcome to the Character Creator!");
+        Console.WriteLine("Please enter a name for your character:\n> ");
+        string characterName = Console.ReadLine();
+        CharacterObject(characterName);
+        createCharacter();
 	}
 
-public static void PromptDeleteCharacter()
+    public static void PromptDeleteCharacter()
 {
     // If there are no characters, stop
     if (characterList.Count == 0)
@@ -79,14 +84,12 @@ public static void PromptDeleteCharacter()
     }
 }
 
-
-
-public static void promptViewCharacter()
+    public static void promptViewCharacter()
 {
     // If there are no characters, stop
     if (characterList.Count == 0)
     {
-        Console.WriteLine("There are no characters to delete.");
+        Console.WriteLine("There are no characters to view.");
         return;
     }
 
@@ -106,7 +109,6 @@ public static void promptViewCharacter()
         if (index >= 0 && index < characterList.Count)
         {
             viewCharacter(characterList[index]);
-            Console.WriteLine("Character deleted!");
         }
         else
         {
@@ -118,12 +120,6 @@ public static void promptViewCharacter()
         Console.WriteLine("You must type a number.");
     }
 }
-
-	public static void createCharacter()
-	{
-		CharacterObject character = new CharacterObject();
-		characterList.add(character);
-	}
     
 	public static void viewCharacter(character character)
     {
@@ -133,11 +129,6 @@ public static void promptViewCharacter()
 	public static void deleteCharacter(character character)
     {
 		characterList.remove(character);
-    }
-
-    public static void exit()
-    {
-		
     }
 
     public UserInterface()
