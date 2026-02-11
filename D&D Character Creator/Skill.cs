@@ -118,55 +118,12 @@ namespace D_D_Character_Creator
         /// <summary>
         /// Calculates the modifier for this skill
         /// </summary>
-        /// <param name="statScore">Character's score for this stat</param>
+        /// <param name="statScore">Character's modifier for this stat</param>
         /// <param name="proficiencyBonus">Character's current proficiency bonus</param>
-        public void CalculateModifier(int statScore, int proficiencyBonus)
+        public void CalculateModifier(int statModifier, int proficiencyBonus)
         {
             //Base modifier before adjusting for proficiency and expertise
-            if(statScore <= 1)
-            {
-                modifier = -5;
-            }
-            else if(statScore <=3)
-            {
-                modifier = -4;
-            }
-            else if (statScore <=5)
-            {
-                modifier = -3;
-            }
-            else if (statScore <= 7)
-            {
-                modifier = -2;
-            }
-            else if (statScore <= 9)
-            {
-                modifier = -1;
-            }
-            else if(statScore <= 11)
-            {
-                modifier = 0;
-            }
-            else if(statScore <= 13)
-            {
-                modifier = 1;
-            }
-            else if(statScore <= 15)
-            {
-                modifier = 2;
-            }
-            else if(statScore <= 17)
-            {
-                modifier = 3;
-            }
-            else if(statScore <= 19)
-            {
-                modifier = 4;
-            }
-            else if(statScore >= 20)
-            {
-                modifier = 5;
-            }
+           modifier = statModifier;
 
 
             //Adjust for proficiency
