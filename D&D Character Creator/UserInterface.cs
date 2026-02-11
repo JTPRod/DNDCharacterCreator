@@ -2,6 +2,8 @@
 
 public class UserInterface
 {
+    public static List<CharacterObject> characterList = new List<CharacterObject>();
+
     public static void MainMenu()
     {
         Console.WriteLine("\nWelcome to DND! We have dungeons AND dragons, can you believe it?\n");
@@ -42,8 +44,8 @@ public class UserInterface
         Console.WriteLine("Welcome to the Character Creator!");
         Console.WriteLine("Please enter a name for your character:\n> ");
         string characterName = Console.ReadLine();
-        CharacterObject(characterName);
-        createCharacter();
+        CharacterObject character = new CharacterObject(characterName);
+        character.CreateCharacter();
 	}
 
     public static void PromptDeleteCharacter()
@@ -121,14 +123,14 @@ public class UserInterface
     }
 }
     
-	public static void viewCharacter(character character)
+	public static void viewCharacter(CharacterObject character)
     {
 		Console.WriteLine(character.ToString());
     }
 
-	public static void deleteCharacter(character character)
+	public static void deleteCharacter(CharacterObject character)
     {
-		characterList.remove(character);
+        characterList.Remove(character);
     }
 
     public UserInterface()
