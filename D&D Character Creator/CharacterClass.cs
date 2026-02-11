@@ -1,4 +1,5 @@
-﻿using System;
+﻿using D_D_Character_Creator;
+using System;
 
 public class CharacterClass
 {
@@ -9,7 +10,7 @@ public class CharacterClass
     public List<string> savingThrows = new List<string>();
     public int skillNum;
     public List<string> skills = new List<string>();
-    public List<string> features = new List<string>();
+    internal List<Feature> features = new List<Feature>();
     public List<Classes> subclasses = new List<Classes>();
 
 

@@ -138,5 +138,29 @@ namespace D_D_Character_Creator
                 modifier += proficiencyBonus;
             }
         }
+
+
+
+
+        public static bool operator ==(Skill a, Skill b)
+        {
+            if (a is null || b is null)
+            {
+                if (a is null && b is null) return true;
+                return false;
+            }
+            return a.getName().Equals(b.getName());
+        }
+
+        public static bool operator !=(Skill a, Skill b)
+        {
+            if(a is null || b is null)
+            {
+                if(a is null && b is null) return false;
+                return true;
+            }
+            return !(a.getName().Equals(b.getName()));
+        }
+
     }
 }

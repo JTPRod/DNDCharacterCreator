@@ -8,6 +8,7 @@ namespace D_D_Character_Creator
 {
     internal class Database
     {
+        public static List<Feature> featureDatabase = new List<Feature>();
         public static List<Race> RaceDatabase = new List<Race>();
         public static List<CharacterClass> ClassDatabase = new List<CharacterClass>();
         public static List<Skill> SkillDatabase = new List<Skill>();
@@ -15,9 +16,10 @@ namespace D_D_Character_Creator
 
         public Database()
         {
+            CreateSkillsDatabase();
+            CreateFeatureDatabase();
             CreateRaceDatabase();
             CreateClassDatabase();
-            CreateSkillsDatabase();
         }
 
 
@@ -43,6 +45,7 @@ namespace D_D_Character_Creator
             rogue.hitDice = 8;
             rogue.savingThrows = new List<string> { "Dexterity", "Intelligence" };
             rogue.skillNum = 4;
+            rogue.features = new List<Feature> { Helpers.FindFeature("Rogue Skill Proficiencies", featureDatabase) };
 
             ClassDatabase.Add(rogue);
 
@@ -67,7 +70,7 @@ namespace D_D_Character_Creator
             Skill acrobatics = new Skill("Acrobatics", Stat.DEXTERITY, false);
             SkillDatabase.Add(acrobatics);
 
-            Skill sleightOfHand = new Skill("Sleight Of Hand", Stat.DEXTERITY, false);
+            Skill sleightOfHand = new Skill("Sleight of Hand", Stat.DEXTERITY, false);
             SkillDatabase.Add(sleightOfHand);
 
             Skill stealth = new Skill("Stealth", Stat.DEXTERITY, false);
@@ -132,6 +135,50 @@ namespace D_D_Character_Creator
 
             Skill pursuasion = new Skill("Persuasion", Stat.CHARISMA, false);
             SkillDatabase.Add(pursuasion);
+        }
+
+
+        public void CreateFeatureDatabase()
+        {
+            //Rogue Features 
+            Feature rogueSkillProficiencies = new SelectProficienciesFeature(
+                "Rogue Skill Proficiencies",
+                "Skills: Choose four from Acrobatics, Athletics, Deception, Insight, Intimidation, Investigation, Perception, Performance, Persuasion, Sleight of Hand, and Stealth",
+                false,
+                1,
+                new List<Skill> { Helpers.FindSkill("Acrobatics", Database.SkillDatabase), Helpers.FindSkill("Athletics", SkillDatabase), Helpers.FindSkill("Deception", SkillDatabase), Helpers.FindSkill("Insight", SkillDatabase), Helpers.FindSkill("Intimidation", SkillDatabase), Helpers.FindSkill("Investigation", SkillDatabase), Helpers.FindSkill("Perception", SkillDatabase), Helpers.FindSkill("Performance", SkillDatabase), Helpers.FindSkill("Persuasion", SkillDatabase), Helpers.FindSkill("Sleight of Hand", SkillDatabase), Helpers.FindSkill("Stealth", SkillDatabase) },
+                4);
+            featureDatabase.Add(rogueSkillProficiencies);
+        }
+    }
+
+
+
+
+
+
+    internal static class Helpers
+    {
+        public static Skill FindSkill(string name, List<Skill> list)
+        {
+            Skill s = null;
+            foreach(Skill skill in list)
+            {
+                if(skill.getName().Equals(name)) s = skill;
+            }
+
+            return s;
+        }
+
+        public static Feature FindFeature(string name, List<Feature> list)
+        {
+            Feature f = null;
+            foreach (Feature feature in list)
+            {
+                if (feature.name.Equals(name)) f = feature;
+            }
+
+            return f;
         }
     }
 }

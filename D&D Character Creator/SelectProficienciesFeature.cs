@@ -76,11 +76,53 @@ namespace D_D_Character_Creator
         public void SelectProficienciesFromList(CharacterObject character)
         {
             //skills
-            while (numberSkills > 0)
+            if (skills.Count > 0)
             {
                 //Let user select skill from remaining skills on the list
                 //Add proficiency in that skill for the character
                 //Decrement number of skill that the user can choose
+
+                for (int i = 0; i < numberSkills; i++)
+                {
+                    int numLeft = 0;
+                    StringBuilder sb = new StringBuilder();
+                    sb.Append("\nSelect Skill Proficiencies (" + (numberSkills - i) + " selections remaining)");
+                    sb.Append("\n Skills: ");
+                    foreach(Skill skill in this.skills)
+                    {
+                        Skill playerSkill = Helpers.FindSkill(skill.getName(), character.skills);
+                        if(!playerSkill.getProficient())    //don't display skills the character is already proficient in
+                        {
+                            sb.Append(skill.getName() + "  ");
+                            numLeft++;
+                        }
+                    }
+
+                    if(numLeft == 0)
+                    {
+                        Console.WriteLine("You cannot gain any new proficiencies (All available skills already have proficiency)");
+                    }
+                    else if(numLeft > 1)
+                    {
+                        sb.Append("\nPlease select a proficiency  ");
+                        string prompt = sb.ToString();
+                        Console.Write(prompt);
+
+                        string input = Console.ReadLine();
+
+                        if(Helpers.FindSkill(input, this.skills) != null)   //if user inputs valid skill, set proficiency for skill
+                        {
+                            Skill selectedSkill = Helpers.FindSkill(input, character.skills);
+
+                            selectedSkill.setProficient(true);
+                        }
+                        else
+                        {
+                            Console.WriteLine("\nThat was not a valid selection! (must input name of skill case sensitive)");
+                        }
+                    }
+                    
+                }
             }
 
             //weapons
@@ -115,7 +157,6 @@ namespace D_D_Character_Creator
                 //Decrement number of tools that the user can choose
             }
 
-            throw new NotImplementedException();
         }
 
 

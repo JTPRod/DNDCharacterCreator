@@ -1,4 +1,5 @@
-﻿using System;
+﻿using D_D_Character_Creator;
+using System;
 using System.Collections.Generic;
 
 public class Race
@@ -8,7 +9,7 @@ public class Race
 	public int movementSpeed;
 	public Dictionary<string, int> abilityScoreIncreases = new Dictionary<string, int>();
     public List<string> languages = new List<string>();
-    public List<string> racialTraits = new List<string>();
+    internal List<Feature> racialTraits = new List<Feature>();
 
 
     public Race()

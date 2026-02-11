@@ -34,8 +34,9 @@ public class CharacterObject
 
     //other
     //skillList
-    List<Skill> skills = new List<Skill>();
+    internal List<Skill> skills = new List<Skill>();
     //featuresAndTraits
+    internal List<Feature> features = new List<Feature>();
     //languages
     //toolProf
     //armorProf
@@ -65,12 +66,12 @@ public class CharacterObject
 
     public void CreateCharacter()
     {
+        this.profBonus = 2;
+
         SelectRace();
         SelectedClass();
+        LevelUp();
         SkillCalculation();
-
-        this.level = 1;
-        this.profBonus = 2;
     }
 
     public void SelectRace()
@@ -129,6 +130,12 @@ public class CharacterObject
                     if (s == "Intelligence") this.intScore += this.race.abilityScoreIncreases[s];
                     if (s == "Wisdom") this.wisScore += this.race.abilityScoreIncreases[s];
                     if (s == "Charisma") this.chaScore += this.race.abilityScoreIncreases[s];
+                }
+
+                //Add features/traits
+                foreach (Feature f in this.race.racialTraits)
+                {
+                    this.features.Add(f);
                 }
             }
         }
@@ -214,6 +221,12 @@ public class CharacterObject
 
                 //Calculate innitiative
                 this.initiative = this.dexMod;
+
+                //Add features
+                foreach(Feature f in this.characterClass.features)
+                {
+                    this.features.Add(f);
+                }
             }
         }
     }
@@ -339,6 +352,22 @@ public class CharacterObject
                     break;
             }
         }
+    }
+
+
+    public void LevelUp()
+    {
+        this.level++;
+
+        foreach(Feature feature in features)
+        {
+            if(feature.level == this.level)
+            {
+                feature.ExecuteFunctionality(this);
+            }
+        }
+
+        //only calculate/roll health if level is higher than 1
     }
 
 
