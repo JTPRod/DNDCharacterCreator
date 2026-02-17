@@ -72,6 +72,11 @@ public class CharacterObject
         SelectedClass();
         LevelUp();
         SkillCalculation();
+
+        this.maxHP = hitDice + conMod;
+        if (this.maxHP < 1) this.maxHP = 1;
+
+        this.AC = dexMod;   //remove this once armor is addable
     }
 
     public void SelectRace()
@@ -157,7 +162,7 @@ public class CharacterObject
                 i++;
                 Console.WriteLine("   " + i + ".) " + c.className);
             }
-            Console.Write("Please Select a Race: ");
+            Console.Write("Please Select a Class: ");
             string input = Console.ReadLine();
 
             int intInput = -1;
@@ -380,9 +385,11 @@ public class CharacterObject
         sb.Append("\n  Race: " + this.race.raceName);
         sb.Append("\n  Class: " + this.characterClass.className);
         sb.Append("\n  Level: " + this.level);
-        sb.Append("\n  Speed: " + this.speed + "ft");
         sb.Append("\n  Proficiency Bonus: +" + this.profBonus);
+        sb.Append("\n  Speed: " + this.speed + "ft");
         sb.Append("\n  Initiative: +" + this.initiative);
+        sb.Append("\n  AC: +" + this.AC);
+        sb.Append("\n  Max HP: " + this.maxHP);
         sb.Append("\n  Hit Dice: " + this.level + "D" + this.hitDice);
 
         sb.Append("\n  ___Stats___");
