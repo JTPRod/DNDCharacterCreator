@@ -24,9 +24,13 @@ namespace D_D_Character_Creator
             foreach (var language in Languages)
             {
                 //Add language to character
+                if(!character.languages.Contains(language))
+                {
+                    character.languages.Add(language);
+                }
             }
 
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public override void ExecuteFunctionality(CharacterObject character)
