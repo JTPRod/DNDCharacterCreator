@@ -49,7 +49,7 @@ namespace D_D_Character_Creator
 
             ClassDatabase.Add(rogue);
 
-          
+           
 
         }
 
