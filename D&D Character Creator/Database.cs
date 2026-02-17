@@ -176,7 +176,8 @@ namespace D_D_Character_Creator
             cleric.hitDice = 8;
             cleric.savingThrows = new List<string> { "Wisdom", "Charisma" };
             cleric.skillNum = 2;
-            cleric.features = new List<Feature> {Helpers.FindFeature("Cleric Skill Proficiencies", featureDatabase)};            ClassDatabase.Add(cleric);
+            cleric.features = new List<Feature> {Helpers.FindFeature("Cleric Skill Proficiencies", featureDatabase)};            
+            ClassDatabase.Add(cleric);
 
 
             CharacterClass druid = new CharacterClass();
@@ -195,7 +196,8 @@ namespace D_D_Character_Creator
             fighter.hitDice = 10;
             fighter.savingThrows = new List<string> { "Strength", "Constitution" };
             fighter.skillNum = 2;
-            fighter.features = new List<Feature> {Helpers.FindFeature("Fighter Skill Proficiencies", featureDatabase)};            ClassDatabase.Add(fighter);
+            fighter.features = new List<Feature> {Helpers.FindFeature("Fighter Skill Proficiencies", featureDatabase)};            
+            ClassDatabase.Add(fighter);
 
 
             CharacterClass monk = new CharacterClass();
@@ -204,7 +206,8 @@ namespace D_D_Character_Creator
             monk.hitDice = 8;
             monk.savingThrows = new List<string> { "Strength", "Dexterity" };
             monk.skillNum = 2;
-            monk.features = new List<Feature> {Helpers.FindFeature("Monk Skill Proficiencies", featureDatabase)};            ClassDatabase.Add(monk);
+            monk.features = new List<Feature> {Helpers.FindFeature("Monk Skill Proficiencies", featureDatabase)};            
+            ClassDatabase.Add(monk);
 
 
             CharacterClass paladin = new CharacterClass();
@@ -223,7 +226,8 @@ namespace D_D_Character_Creator
             ranger.hitDice = 10;
             ranger.savingThrows = new List<string> { "Strength", "Dexterity" };
             ranger.skillNum = 3;
-            ranger.features = new List<Feature> {Helpers.FindFeature("Ranger Skill Proficiencies", featureDatabase)};            ClassDatabase.Add(ranger);
+            ranger.features = new List<Feature> {Helpers.FindFeature("Ranger Skill Proficiencies", featureDatabase)};            
+            ClassDatabase.Add(ranger);
 
 
             CharacterClass rogue = new CharacterClass();
@@ -242,7 +246,8 @@ namespace D_D_Character_Creator
             sorcerer.hitDice = 6;
             sorcerer.savingThrows = new List<string> { "Constitution", "Charisma" };
             sorcerer.skillNum = 2;
-            sorcerer.features = new List<Feature> {Helpers.FindFeature("Sorcerer Skill Proficiencies", featureDatabase)};            ClassDatabase.Add(sorcerer);
+            sorcerer.features = new List<Feature> {Helpers.FindFeature("Sorcerer Skill Proficiencies", featureDatabase)};            
+            ClassDatabase.Add(sorcerer);
 
 
             CharacterClass warlock = new CharacterClass();
@@ -251,7 +256,8 @@ namespace D_D_Character_Creator
             warlock.hitDice = 8;
             warlock.savingThrows = new List<string> { "Wisdom", "Charisma" };
             warlock.skillNum = 2;
-            warlock.features = new List<Feature> {Helpers.FindFeature("Warlock Skill Proficiencies", featureDatabase)};            ClassDatabase.Add(warlock);
+            warlock.features = new List<Feature> {Helpers.FindFeature("Warlock Skill Proficiencies", featureDatabase)};            
+            ClassDatabase.Add(warlock);
 
 
             CharacterClass wizard = new CharacterClass();
@@ -260,7 +266,8 @@ namespace D_D_Character_Creator
             wizard.hitDice = 6;
             wizard.savingThrows = new List<string> { "Intelligence", "Wisdom" };
             wizard.skillNum = 2;
-            wizard.features = new List<Feature> {Helpers.FindFeature("Wizard Skill Proficiencies", featureDatabase)};            ClassDatabase.Add(wizard);
+            wizard.features = new List<Feature> {Helpers.FindFeature("Wizard Skill Proficiencies", featureDatabase)};            
+            ClassDatabase.Add(wizard);
 
         }
 
