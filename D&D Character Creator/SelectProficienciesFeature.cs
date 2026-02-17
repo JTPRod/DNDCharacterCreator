@@ -75,6 +75,8 @@ namespace D_D_Character_Creator
         /// <param name="characterObject">Character that this feature is being applied to</param>
         public void SelectProficienciesFromList(CharacterObject character)
         {
+            Console.WriteLine("\n=============================================");
+
             //skills
             if (skills.Count > 0)
             {

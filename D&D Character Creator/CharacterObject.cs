@@ -240,6 +240,7 @@ public class CharacterObject
     {
         bool validStatInput = false;
         int statRoll = 0;
+        Console.WriteLine("\n=============================================");
 
         while (!validStatInput)
         {
