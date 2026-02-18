@@ -8,11 +8,11 @@ namespace D_D_Character_Creator
 {
     internal class AddProficienciesFeature : Feature
     {
-        public List<Skill> skills;
-        public List<WeaponType> weaponTypes;
-        public List<Item> items;
-        public List<ArmorWeight> armors;
-        public List<string> tools;
+        public List<Skill> skills = new List<Skill>();
+        public List<WeaponType> weaponTypes = new List<WeaponType>();
+        public List<Item> items = new List<Item>();
+        public List<ArmorWeight> armors = new List<ArmorWeight>();
+        public List<string> tools = new List<string>();
 
         //Skills
         public AddProficienciesFeature(string name, string description, bool visible, int level, List <Skill> skills, int removeAtLevel = 100) : base(name, description, visible, level, removeAtLevel)
@@ -63,29 +63,50 @@ namespace D_D_Character_Creator
             foreach (Skill skill in skills)
             {
                 //Add skill proficiency for the given character
-            }
+                foreach (Skill charSkill in character.skills)
+                {
+                    if ((skill.getName() == charSkill.getName()) && (!charSkill.getProficient()))
+                    {
+                        charSkill.setProficient(true);
+                    }
+                }
+            }         
 
-            foreach(WeaponType weapon in weaponTypes)
+            foreach (WeaponType weapon in weaponTypes)
             {
-                //Add weapon proficiency to the given character
+                //Add weapon proficiencies to the given character
+                if (!character.weaponProficiencies.Contains(weapon))
+                {
+                    character.weaponProficiencies.Add(weapon);
+                }
             }
-
+                      
             foreach (Item item in items)
             {
                 //Add item proficieny to the given character
+                if (!character.otherItemProficiencies.Contains(item))
+                {
+                    character.otherItemProficiencies.Add(item);
+                }
             }
-
-            foreach(ArmorWeight armor in armors)
+            
+            foreach (ArmorWeight armor in armors)
             {
                 //Add armor proficiency to the given character
+                if (!character.armorProficiencies.Contains(armor))
+                {
+                    character.armorProficiencies.Add(armor);
+                }
             }
-
-            foreach(string tool in tools)
+            
+            foreach (string tool in tools)
             {
                 //Add tool proficiency to the given character
-            }
-
-            throw new NotImplementedException();
+                if (!character.toolProficiencies.Contains(tool))
+                {
+                    character.toolProficiencies.Add(tool);
+                }
+            }        
         }
 
 

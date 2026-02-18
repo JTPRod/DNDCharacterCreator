@@ -66,6 +66,7 @@ namespace D_D_Character_Creator
             {
                 { "Dexterity", 2 }
             };
+            elf.racialTraits = new List<Feature> { Helpers.FindFeature("Keen Senses", featureDatabase), Helpers.FindFeature("Languages (elf)", featureDatabase) };
             RaceDatabase.Add(elf);
 
             Race gnome = new Race();
@@ -236,7 +237,7 @@ namespace D_D_Character_Creator
             rogue.hitDice = 8;
             rogue.savingThrows = new List<string> { "Dexterity", "Intelligence" };
             rogue.skillNum = 4;
-            rogue.features = new List<Feature> {Helpers.FindFeature("Rogue Skill Proficiencies", featureDatabase)};
+            rogue.features = new List<Feature> {Helpers.FindFeature("Rogue Skill Proficiencies", featureDatabase), Helpers.FindFeature("Rogue Proficiencies", featureDatabase), Helpers.FindFeature("Thieves' Cant", featureDatabase) };
             ClassDatabase.Add(rogue);
 
 
@@ -467,6 +468,28 @@ namespace D_D_Character_Creator
                 4);
             featureDatabase.Add(rogueSkillProficiencies);
 
+            Feature rogueProficiencies = new AddProficienciesFeature(
+                "Rogue Proficiencies",
+                "Armor: Light armor\nWeapons: Simple weapons, hand crossbows, longswords, rapiers, shortswords\nTools: Thieves' tools\nSaving Throws: Dexterity, Intelligence",
+                false,
+                1,
+                new List<Skill> { Helpers.FindSkill("Dexterity Saving Throw", SkillDatabase), Helpers.FindSkill("Intelligence Saving Throw", SkillDatabase) },
+                new List<WeaponType> { WeaponType.SIMPLE, WeaponType.HANDCROSSBOW, WeaponType.LONGSWORD, WeaponType.RAPIER, WeaponType.SHORTSWORD },
+                new List<Item> { },
+                new List<ArmorWeight> { ArmorWeight.LIGHT },
+                new List<string> { "Thieves' tools" }
+                );
+            featureDatabase.Add(rogueProficiencies);
+
+            Feature ThievesCant = new AddLanguagesFeature(
+                "Thieves' Cant",
+                "During your rogue training you learned thieves' cant, a secret mix of dialect, jargon, and code that allows you to hide messages in seemingly normal conversation. Only another creature that knows thieves' cant understands such messages. It takes four times longer to convey such a message than it does to speak the same idea plainly.\n\nIn addition, you understand a set of secret signs and symbols used to convey short, simple messages, such as whether an area is dangerous or the territory of a thieves' guild, whether loot is nearby, or whether the people in an area are easy marks or will provide a safe house for thieves on the run.",
+                true,
+                1,
+                new List<string> { "Thieves' Cant" }
+                );
+            featureDatabase.Add(ThievesCant);
+
 
             //Sorcerer Features
             Feature sorcererSkillProficiencies = new SelectProficienciesFeature(
@@ -499,6 +522,26 @@ namespace D_D_Character_Creator
                 new List<Skill> { Helpers.FindSkill("Arcana", SkillDatabase), Helpers.FindSkill("History", SkillDatabase), Helpers.FindSkill("Insight", SkillDatabase), Helpers.FindSkill("Investigation", SkillDatabase), Helpers.FindSkill("Medicine", SkillDatabase), Helpers.FindSkill("Religion", SkillDatabase) },
                 2);
             featureDatabase.Add(wizardSkillProficiencies);
+
+
+            //Elf Features
+            Feature keenSenses = new AddProficienciesFeature(
+               "Keen Senses",
+               "You have proficiency in the Perception skill.",
+               true,
+               1,
+               new List<Skill> { Helpers.FindSkill("Perception", SkillDatabase) }
+               );
+            featureDatabase.Add(keenSenses);
+
+            Feature ElfLanguages = new AddLanguagesFeature(
+               "Languages (elf)",
+               "You can speak, read, and write Common and Elven.",
+               false,
+               1,
+               new List<string> { "Common", "Elven" }
+               );
+            featureDatabase.Add(ElfLanguages);
         }
     }
 
@@ -524,6 +567,159 @@ namespace D_D_Character_Creator
             }
 
             return f;
+        }
+
+        public static string GetWeaponTypeString(WeaponType type)
+        {
+            string weaponName = null;
+            switch (type)
+            {
+                case WeaponType.SIMPLE:
+                    weaponName = "Simple Weapon";
+                    break;
+                case WeaponType.MARTIAL:
+                    weaponName = "Martial Weapon";
+                    break;
+                case WeaponType.CLUB:
+                    weaponName = "Club";
+                    break;
+                case WeaponType.DAGGER:
+                    weaponName = "Dagger";
+                    break;
+                case WeaponType.GREATCLUB:
+                    weaponName = "Great Club";
+                    break;
+                case WeaponType.HANDAX:
+                    weaponName = "Handaxe";
+                    break;
+                case WeaponType.JAVELIN:
+                    weaponName = "Javelin";
+                    break;
+                case WeaponType.LIGHTHAMMER:
+                    weaponName = "Light Hammer";
+                    break;
+                case WeaponType.MACE:
+                    weaponName = "Mace";
+                    break;
+                case WeaponType.QUARTERSTAFF:
+                    weaponName = "Quarterstaff";
+                    break;
+                case WeaponType.SICKLE:
+                    weaponName = "Sickle";
+                    break;
+                case WeaponType.SPEAR:
+                    weaponName = "Spear";
+                    break;
+                case WeaponType.LIGHTCROSSBOW:
+                    weaponName = "Light Crossbow";
+                    break;
+                case WeaponType.DART:
+                    weaponName = "Dart";
+                    break;
+                case WeaponType.SHORTBOW:
+                    weaponName = "Shortbow";
+                    break;
+                case WeaponType.SLING:
+                    weaponName = "Sling";
+                    break;
+                case WeaponType.BATTLEAX:
+                    weaponName = "Battleaxe";
+                    break;
+                case WeaponType.FLAIL:
+                    weaponName = "Flail";
+                    break;
+                case WeaponType.GLAVE:
+                    weaponName = "Glave";
+                    break;
+                case WeaponType.GREATAX:
+                    weaponName = "Greataxe";
+                    break;
+                case WeaponType.GREATSWORD:
+                    weaponName = "Greatsword";
+                    break;
+                case WeaponType.HALBERD:
+                    weaponName = "Halberd";
+                    break;
+                case WeaponType.LANCE:
+                    weaponName = "Lance";
+                    break;
+                case WeaponType.LONGSWORD:
+                    weaponName = "Longsword";
+                    break;
+                case WeaponType.MAUL:
+                    weaponName = "Maul";
+                    break;
+                case WeaponType.MORNINGSTAR:
+                    weaponName = "Morningstar";
+                    break;
+                case WeaponType.PIKE:
+                    weaponName = "Pike";
+                    break;
+                case WeaponType.RAPIER:
+                    weaponName = "Rapier";
+                    break;
+                case WeaponType.SCIMITAR:
+                    weaponName = "Scimitar";
+                    break;
+                case WeaponType.SHORTSWORD:
+                    weaponName = "Shortsword";
+                    break;
+                case WeaponType.TRIDENT:
+                    weaponName = "Trident";
+                    break;
+                case WeaponType.WARPICK:
+                    weaponName = "Warpick";
+                    break;
+                case WeaponType.WARHAMMER:
+                    weaponName = "Warhammer";
+                    break;
+                case WeaponType.WHIP:
+                    weaponName = "Whip";
+                    break;
+                case WeaponType.BLOWGUN:
+                    weaponName = "Blowgun";
+                    break;
+                case WeaponType.HANDCROSSBOW:
+                    weaponName = "Hand Crossbow";
+                    break;
+                case WeaponType.HEAVYCROSSBOW:
+                    weaponName = "Heavy Crossbow";
+                    break;
+                case WeaponType.LONGBOW:
+                    weaponName = "Longbow";
+                    break;
+                case WeaponType.NET:
+                    weaponName = "Net";
+                    break;
+                default:
+                    break;
+            }
+            return weaponName;
+        }
+
+
+        public static string GetArmorWeightString(ArmorWeight armor)
+        {
+            string armorName = null;
+
+            switch (armor)
+            {
+                case ArmorWeight.LIGHT:
+                    armorName = "Light Armor";
+                    break;
+                case ArmorWeight.MEDIUM:
+                    armorName = "Medium Armor";
+                    break;
+                case ArmorWeight.HEAVY:
+                    armorName = "Heavy Armor";
+                    break;
+                case ArmorWeight.SHIELDS:
+                    armorName = "Shields";
+                    break;
+                default:
+                    break;
+            }
+            return armorName;
         }
     }
 }

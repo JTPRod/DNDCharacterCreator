@@ -38,9 +38,15 @@ public class CharacterObject
     //featuresAndTraits
     internal List<Feature> features = new List<Feature>();
     //languages
+    public List<string> languages = new List<string>();
     //toolProf
+    public List<string> toolProficiencies = new List<string>();
     //armorProf
+    public List<ArmorWeight> armorProficiencies = new List<ArmorWeight>();
     //weaponProf
+    public List<WeaponType> weaponProficiencies = new List<WeaponType>();
+    //Other Item Proficiencies
+    internal List<Item> otherItemProficiencies = new List<Item>();
     //weaponInv
     //equippedArmor
     //equippedShield
@@ -401,7 +407,7 @@ public class CharacterObject
         sb.Append("\n    Wisdom Score: " + this.wisScore + " ( +" + this.wisMod + " )");
         sb.Append("\n    Charisma Score: " + this.chaScore + " ( +" + this.chaMod + " )");
 
-        sb.Append("\n  ___Skill___");
+        sb.Append("\n  ___Skills___");
         foreach(Skill skill in skills)
         {
             sb.Append("\n    " + skill.getName() + ": " + skill.getModifier());
@@ -411,8 +417,33 @@ public class CharacterObject
                 if (skill.getExpertise()) sb.Append(" + Expertise");
             }
         }
+        sb.Append("\n  ___Armor Proficiencies___");
+        foreach(ArmorWeight armorProf in armorProficiencies)
+        {
+            sb.Append("\n    " + Helpers.GetArmorWeightString(armorProf));
+        }
 
 
+        sb.Append("\n  ___Weapon Proficiencies___");
+        foreach(WeaponType weaponProf in weaponProficiencies)
+        {
+            sb.Append("\n    " + Helpers.GetWeaponTypeString(weaponProf));
+        }
+
+
+
+        sb.Append("\n  ___Tool Proficiencies___");
+        foreach(string toolProf in toolProficiencies)
+        {
+            sb.Append("\n    " + toolProf);
+        }
+
+        sb.Append("\n  ___Languages___");
+        foreach(string language in languages)
+        {
+            sb.Append("\n    " + language);
+        }
+        
 
 
         string characterDisplayString = sb.ToString();
