@@ -33,6 +33,7 @@ namespace D_D_Character_Creator
             {
                 { "Charisma", 2 }
             };
+            aasimar.racialTraits = new List<Feature> { Helpers.FindFeature("Languages (Aasimar)", featureDatabase) };
             RaceDatabase.Add(aasimar);
 
             //add chameleon
@@ -46,7 +47,8 @@ namespace D_D_Character_Creator
                { "Strength", 2 },
                 { "Charisma", 1 }
             };
-            RaceDatabase.Add(dragonborn);
+            dragonborn.racialTraits = new List<Feature> { Helpers.FindFeature("Languages(dragonborn)", featureDatabase)};
+            RaceDatabase.Add(dragonborn); 
 
             Race dwarf = new Race();
             dwarf.race = Race.Races.DWARF;
@@ -56,6 +58,7 @@ namespace D_D_Character_Creator
             {
                 { "Constitution", 2 }
             };
+            dwarf.racialTraits = new List<Feature> { Helpers.FindFeature("Stonecunning", featureDatabase), Helpers.FindFeature("Languages (dwarf)", featureDatabase), Helpers.FindFeature("Dwarf Proficiencies", featureDatabase) };
             RaceDatabase.Add(dwarf);
 
             Race elf = new Race();
@@ -77,6 +80,7 @@ namespace D_D_Character_Creator
             {
                 { "Intelligence", 2 }
             };
+            gnome.racialTraits = new List<Feature> { Helpers.FindFeature("Gnome Proficiencies", featureDatabase), Helpers.FindFeature("Languages (Gnome)", featureDatabase) };
             RaceDatabase.Add(gnome);
 
             Race goliath = new Race();
@@ -88,6 +92,7 @@ namespace D_D_Character_Creator
                 { "Strength", 2 },
                 { "Constitution", 1 }
             };
+            goliath.racialTraits = new List<Feature> { Helpers.FindFeature("Little Giant", featureDatabase), Helpers.FindFeature("Languages (Goliath)", featureDatabase) };
             RaceDatabase.Add(goliath);
 
             Race halfling = new Race();
@@ -98,6 +103,7 @@ namespace D_D_Character_Creator
             {
                 { "Dexterity", 2 }
             };
+            halfling.racialTraits = new List<Feature> { Helpers.FindFeature("Languages (Halfling)", featureDatabase) };
             RaceDatabase.Add(halfling);
 
             Race human = new Race();
@@ -113,6 +119,7 @@ namespace D_D_Character_Creator
                 { "Wisdom", 1 },
                 { "Charisma", 1 }
             };
+            human.racialTraits = new List<Feature> { Helpers.FindFeature("Languages (Human)", featureDatabase) };
             RaceDatabase.Add(human);
 
             Race orc = new Race();
@@ -124,6 +131,7 @@ namespace D_D_Character_Creator
                 { "Strength", 2 },
                 { "Constitution", 1 }
             };
+            orc.racialTraits = new List<Feature> { Helpers.FindFeature("Languages (Orc)", featureDatabase) };
             RaceDatabase.Add(orc);
 
             Race tiefling = new Race();
@@ -135,6 +143,7 @@ namespace D_D_Character_Creator
                 { "Charisma", 2 },
                 { "Intelligence", 1 }
             };
+            tiefling.racialTraits = new List<Feature> { Helpers.FindFeature("Languages (Tiefling)", featureDatabase) };
             RaceDatabase.Add(tiefling);
 
         }
@@ -147,7 +156,7 @@ namespace D_D_Character_Creator
             artificer.hitDice = 8;
             artificer.savingThrows = new List<string> { "Constitution", "Intelligence" };
             artificer.skillNum = 2;
-            artificer.features = new List<Feature> {Helpers.FindFeature("Artificer Skill Proficiencies", featureDatabase)};
+            artificer.features = new List<Feature> {Helpers.FindFeature("Artificer Skill Proficiencies", featureDatabase), Helpers.FindFeature("Artificer Proficiencies", featureDatabase) };
             ClassDatabase.Add(artificer);
 
 
@@ -157,7 +166,7 @@ namespace D_D_Character_Creator
             barbarian.hitDice = 12;
             barbarian.savingThrows = new List<string> { "Strength", "Constitution" };
             barbarian.skillNum = 2;
-            barbarian.features = new List<Feature> {Helpers.FindFeature("Barbarian Skill Proficiencies", featureDatabase)};
+            barbarian.features = new List<Feature> {Helpers.FindFeature("Barbarian Skill Proficiencies", featureDatabase), Helpers.FindFeature("Barbarian Proficiencies", featureDatabase) };
             ClassDatabase.Add(barbarian);
 
 
@@ -167,7 +176,7 @@ namespace D_D_Character_Creator
             bard.hitDice = 8;
             bard.savingThrows = new List<string> { "Dexterity", "Charisma" };
             bard.skillNum = 3;
-            bard.features = new List<Feature> {Helpers.FindFeature("Bard Skill Proficiencies", featureDatabase)};
+            bard.features = new List<Feature> {Helpers.FindFeature("Bard Skill Proficiencies", featureDatabase), Helpers.FindFeature("Bard Proficiencies", featureDatabase) };
             ClassDatabase.Add(bard);
 
 
@@ -177,7 +186,7 @@ namespace D_D_Character_Creator
             cleric.hitDice = 8;
             cleric.savingThrows = new List<string> { "Wisdom", "Charisma" };
             cleric.skillNum = 2;
-            cleric.features = new List<Feature> {Helpers.FindFeature("Cleric Skill Proficiencies", featureDatabase)};            
+            cleric.features = new List<Feature> {Helpers.FindFeature("Cleric Skill Proficiencies", featureDatabase), Helpers.FindFeature("Cleric Proficiencies", featureDatabase) };            
             ClassDatabase.Add(cleric);
 
 
@@ -187,7 +196,7 @@ namespace D_D_Character_Creator
             druid.hitDice = 8;
             druid.savingThrows = new List<string> { "Intelligence", "Wisdom" };
             druid.skillNum = 2;
-            druid.features = new List<Feature> {Helpers.FindFeature("Druid Skill Proficiencies", featureDatabase)};
+            druid.features = new List<Feature> {Helpers.FindFeature("Druid Skill Proficiencies", featureDatabase), Helpers.FindFeature("Druid Proficiencies", featureDatabase), Helpers.FindFeature("Druidic", featureDatabase) };
             ClassDatabase.Add(druid);
 
 
@@ -197,7 +206,7 @@ namespace D_D_Character_Creator
             fighter.hitDice = 10;
             fighter.savingThrows = new List<string> { "Strength", "Constitution" };
             fighter.skillNum = 2;
-            fighter.features = new List<Feature> {Helpers.FindFeature("Fighter Skill Proficiencies", featureDatabase)};            
+            fighter.features = new List<Feature> {Helpers.FindFeature("Fighter Skill Proficiencies", featureDatabase), Helpers.FindFeature("Fighter Proficiencies", featureDatabase) };            
             ClassDatabase.Add(fighter);
 
 
@@ -207,7 +216,7 @@ namespace D_D_Character_Creator
             monk.hitDice = 8;
             monk.savingThrows = new List<string> { "Strength", "Dexterity" };
             monk.skillNum = 2;
-            monk.features = new List<Feature> {Helpers.FindFeature("Monk Skill Proficiencies", featureDatabase)};            
+            monk.features = new List<Feature> {Helpers.FindFeature("Monk Skill Proficiencies", featureDatabase), Helpers.FindFeature("Monk Proficiencies", featureDatabase) };            
             ClassDatabase.Add(monk);
 
 
@@ -217,7 +226,7 @@ namespace D_D_Character_Creator
             paladin.hitDice = 10;
             paladin.savingThrows = new List<string> { "Wisdom", "Charisma" };
             paladin.skillNum = 2;
-            paladin.features = new List<Feature> {Helpers.FindFeature("Paladin Skill Proficiencies", featureDatabase)};
+            paladin.features = new List<Feature> {Helpers.FindFeature("Paladin Skill Proficiencies", featureDatabase), Helpers.FindFeature("Paladin Proficiencies", featureDatabase) };
             ClassDatabase.Add(paladin);
 
 
@@ -227,7 +236,7 @@ namespace D_D_Character_Creator
             ranger.hitDice = 10;
             ranger.savingThrows = new List<string> { "Strength", "Dexterity" };
             ranger.skillNum = 3;
-            ranger.features = new List<Feature> {Helpers.FindFeature("Ranger Skill Proficiencies", featureDatabase)};            
+            ranger.features = new List<Feature> {Helpers.FindFeature("Ranger Skill Proficiencies", featureDatabase), Helpers.FindFeature("Ranger Proficiencies", featureDatabase) };            
             ClassDatabase.Add(ranger);
 
 
@@ -247,7 +256,7 @@ namespace D_D_Character_Creator
             sorcerer.hitDice = 6;
             sorcerer.savingThrows = new List<string> { "Constitution", "Charisma" };
             sorcerer.skillNum = 2;
-            sorcerer.features = new List<Feature> {Helpers.FindFeature("Sorcerer Skill Proficiencies", featureDatabase)};            
+            sorcerer.features = new List<Feature> {Helpers.FindFeature("Sorcerer Skill Proficiencies", featureDatabase), Helpers.FindFeature("Sorcerer Proficiencies", featureDatabase) };            
             ClassDatabase.Add(sorcerer);
 
 
@@ -257,7 +266,7 @@ namespace D_D_Character_Creator
             warlock.hitDice = 8;
             warlock.savingThrows = new List<string> { "Wisdom", "Charisma" };
             warlock.skillNum = 2;
-            warlock.features = new List<Feature> {Helpers.FindFeature("Warlock Skill Proficiencies", featureDatabase)};            
+            warlock.features = new List<Feature> {Helpers.FindFeature("Warlock Skill Proficiencies", featureDatabase), Helpers.FindFeature("Warlock Proficiencies", featureDatabase) };            
             ClassDatabase.Add(warlock);
 
 
@@ -267,7 +276,7 @@ namespace D_D_Character_Creator
             wizard.hitDice = 6;
             wizard.savingThrows = new List<string> { "Intelligence", "Wisdom" };
             wizard.skillNum = 2;
-            wizard.features = new List<Feature> {Helpers.FindFeature("Wizard Skill Proficiencies", featureDatabase)};            
+            wizard.features = new List<Feature> {Helpers.FindFeature("Wizard Skill Proficiencies", featureDatabase), Helpers.FindFeature("Wizard Proficiencies", featureDatabase) };            
             ClassDatabase.Add(wizard);
 
         }
@@ -553,7 +562,7 @@ namespace D_D_Character_Creator
                 new List<Skill> { Helpers.FindSkill("Wisdom Saving Throw", SkillDatabase), Helpers.FindSkill("Charisma Saving Throw", SkillDatabase) },
                 new List<WeaponType> { WeaponType.SIMPLE, WeaponType.MARTIAL },
                 new List<Item> { },
-                new List<ArmorWeight> { ArmorType.LIGHT, ArmorType.MEDIUM, ArmorType.HEAVY, ArmorType.SHIELDS },
+                new List<ArmorWeight> { ArmorWeight.LIGHT, ArmorWeight.MEDIUM, ArmorWeight.HEAVY, ArmorWeight.SHIELDS },
                 new List<string> { }
                 );
             featureDatabase.Add(paladinProficiencies);
@@ -577,7 +586,7 @@ namespace D_D_Character_Creator
                 new List<Skill> { Helpers.FindSkill("Strength Saving Throw", SkillDatabase), Helpers.FindSkill("Dexterity Saving Throw", SkillDatabase) },
                 new List<WeaponType> { WeaponType.SIMPLE, WeaponType.MARTIAL },
                 new List<Item> { },
-                new List<ArmorWeight> { ArmorType.LIGHT, ArmorType.MEDIUM, ArmorType.SHIELDS },
+                new List<ArmorWeight> { ArmorWeight.LIGHT, ArmorWeight.MEDIUM, ArmorWeight.SHIELDS },
                 new List<string> { }
                 );
             featureDatabase.Add(rangerProficiencies);
@@ -631,7 +640,7 @@ namespace D_D_Character_Creator
                 false,
                 1,
                 new List<Skill> { Helpers.FindSkill("Constitution Saving Throw", SkillDatabase), Helpers.FindSkill("Charisma Saving Throw", SkillDatabase) },
-                new List<WeaponType> { WeaponType.DAGGER, WeaponType.DART, WeaponType.SLING, WeaponType.QUARTERSTAFF, WeaponType.LIGHTCROSSBOW }
+                new List<WeaponType> { WeaponType.DAGGER, WeaponType.DART, WeaponType.SLING, WeaponType.QUARTERSTAFF, WeaponType.LIGHTCROSSBOW },
                 new List<Item> { },
                 new List<ArmorWeight> { },
                 new List<string> { }
@@ -654,9 +663,9 @@ namespace D_D_Character_Creator
                 false,
                 1,
                 new List<Skill> { Helpers.FindSkill("Wisdom Saving Throw", SkillDatabase), Helpers.FindSkill("Charisma Saving Throw", SkillDatabase) },
-                new List<WeaponType> { WeaponType.SIMPLE }
+                new List<WeaponType> { WeaponType.SIMPLE },
                 new List<Item> { },
-                new List<ArmorWeight> { ArmorType.LIGHT },
+                new List<ArmorWeight> { ArmorWeight.LIGHT },
                 new List<string> { }
                 );
             featureDatabase.Add(warlockProficiencies);
@@ -677,7 +686,7 @@ namespace D_D_Character_Creator
                 false,
                 1,
                 new List<Skill> { Helpers.FindSkill("Intelligence Saving Throw", SkillDatabase), Helpers.FindSkill("Wisdom Saving Throw", SkillDatabase) },
-                new List<WeaponType> { WeaponType.DAGGER, WeaponType.DART, WeaponType.SLING, WeaponType.QUARTERSTAFF, WeaponType.LIGHTCROSSBOW }
+                new List<WeaponType> { WeaponType.DAGGER, WeaponType.DART, WeaponType.SLING, WeaponType.QUARTERSTAFF, WeaponType.LIGHTCROSSBOW },
                 new List<Item> { },
                 new List<ArmorWeight> { },
                 new List<string> { }
@@ -685,6 +694,17 @@ namespace D_D_Character_Creator
             featureDatabase.Add(wizardProficiencies);
 
         //Race Features
+            //Aasimar Features
+            Feature AasimarLanguages = new AddLanguagesFeature(
+              "Languages (Aasimar)",
+              "Your character can speak, read, and write Common and one other language that you and your DM agree is appropriate for the character. The Player’s Handbook offers a list of languages to choose from. The DM is free to modify that list for a campaign.",
+              false,
+              1,
+              new List<string> { "Common" }
+              );
+            featureDatabase.Add(AasimarLanguages);
+
+
             //Chameleon Features
 
             //Dragonborn Features
@@ -708,13 +728,13 @@ namespace D_D_Character_Creator
             featureDatabase.Add(stonecunning);
 
             Feature DwarfLanguages = new AddLanguagesFeature(
-              "Languages (dragonborn)",
+              "Languages (dwarf)",
               "You can speak, read, and write Common and Dwarvish.",
               false,
               1,
               new List<string> { "Common", "Dwarvish" }
               );
-            featureDatabase.Add(DragonbornLanguages);
+            featureDatabase.Add(DwarfLanguages);
 
             Feature dwarfProficiencies = new AddProficienciesFeature(
                 "Dwarf Proficiencies",
@@ -722,7 +742,7 @@ namespace D_D_Character_Creator
                 false,
                 1,
                 new List<Skill> { },
-                new List<WeaponType> { WeaponType.BATTLEAXE, WeaponType.HANDAXE, WeaponType.LIGHTHAMMER, WeaponType.WARHAMMER }
+                new List<WeaponType> { WeaponType.BATTLEAX, WeaponType.HANDAX, WeaponType.LIGHTHAMMER, WeaponType.WARHAMMER },
                 new List<Item> { },
                 new List<ArmorWeight> { },
                 new List<string> { "Artisan's tools of your choice" }
@@ -755,7 +775,7 @@ namespace D_D_Character_Creator
                 false,
                 1,
                 new List<Skill> { },
-                new List<WeaponType> { }
+                new List<WeaponType> { },
                 new List<Item> { },
                 new List<ArmorWeight> { },
                 new List<string> { "Tinker's tools" }
@@ -782,7 +802,7 @@ namespace D_D_Character_Creator
             featureDatabase.Add(littleGiant);
 
             Feature GoliathLanguages = new AddLanguagesFeature(
-              "Languages (Gnome)",
+              "Languages (Goliath)",
               "You can speak, read, and write Common and Giant.",
               false,
               1,
@@ -799,6 +819,26 @@ namespace D_D_Character_Creator
               new List<string> { "Common", "Halfling" }
               );
             featureDatabase.Add(HalflingLanguages);
+
+            //Human Features
+            Feature HumanLanguages = new AddLanguagesFeature(
+              "Languages (Human)",
+              "You can speak, read, and write Common and one extra language of your choice. Humans typically learn the languages of other peoples they deal with, including obscure dialects. They are fond of sprinkling their speech with words borrowed from other tongues: Orc curses, Elvish musical expressions, Dwarvish military phrases, and so on.",
+              false,
+              1,
+              new List<string> { "Common" }
+              );
+            featureDatabase.Add(HumanLanguages);
+
+            //Orc Features
+            Feature OrcLanguages = new AddLanguagesFeature(
+              "Languages (Orc)",
+              "Your character can speak, read, and write Common and one other language that you and your DM agree is appropriate for the character. The Player’s Handbook offers a list of languages to choose from. The DM is free to modify that list for a campaign.",
+              false,
+              1,
+              new List<string> { "Common" }
+              );
+            featureDatabase.Add(OrcLanguages);
 
             //Tiefling Features
             Feature TieflingLanguages = new AddLanguagesFeature(
@@ -842,10 +882,10 @@ namespace D_D_Character_Creator
             switch (type)
             {
                 case WeaponType.SIMPLE:
-                    weaponName = "Simple Weapon";
+                    weaponName = "Simple Weapons";
                     break;
                 case WeaponType.MARTIAL:
-                    weaponName = "Martial Weapon";
+                    weaponName = "Martial Weapons";
                     break;
                 case WeaponType.CLUB:
                     weaponName = "Club";
