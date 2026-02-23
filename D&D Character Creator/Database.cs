@@ -359,6 +359,7 @@ namespace D_D_Character_Creator
 
         public void CreateFeatureDatabase()
         {
+        //Class Features
             //Artificer Features
             Feature artificerSkillProficiencies = new SelectProficienciesFeature(
                 "Artificer Skill Proficiencies",
@@ -368,6 +369,19 @@ namespace D_D_Character_Creator
                 new List<Skill> { Helpers.FindSkill("Arcana", SkillDatabase), Helpers.FindSkill("History", SkillDatabase), Helpers.FindSkill("Investigation", SkillDatabase), Helpers.FindSkill("Medicine", SkillDatabase), Helpers.FindSkill("Nature", SkillDatabase), Helpers.FindSkill("Perception", SkillDatabase), Helpers.FindSkill("Sleight of Hand", SkillDatabase) },
                 2);
             featureDatabase.Add(artificerSkillProficiencies);
+
+            Feature artificerProficiencies = new AddProficienciesFeature(
+                "Artificer Proficiencies",
+                "Armor: Light armor, Medium Armor, Shields\nWeapons: Simple weapons\nTools: Thieves' tools, Tinker's tools, one type of Artisan's tools of your choice\nSaving Throws: Constitution, Intelligence",
+                false,
+                1,
+                new List<Skill> { Helpers.FindSkill("Constitution Saving Throw", SkillDatabase), Helpers.FindSkill("Intelligence Saving Throw", SkillDatabase) },
+                new List<WeaponType> {WeaponType.SIMPLE},
+                new List<Item> { },
+                new List<ArmorWeight> {ArmorWeight.LIGHT, ArmorWeight.MEDIUM, ArmorWeight.SHIELDS},
+                new List<string> {"Thieves' tools", "Tinker's tools", "one type of Artisan's tools of your choice"}
+                );
+            featureDatabase.Add(artificerProficiencies);
 
 
             //Barbarian Features
@@ -380,6 +394,18 @@ namespace D_D_Character_Creator
                 2);
             featureDatabase.Add(barbarianSkillProficiencies);
 
+            Feature barbarianProficiencies = new AddProficienciesFeature(
+                "Barbarian Proficiencies",
+                "Armor: Light armor, Medium armor, Shields\nWeapons: Simple weapons, Martial weapons\nTools: none\nSaving Throws: Strength, Constitution",
+                false,
+                1,
+                new List<Skill> { Helpers.FindSkill("Strength Saving Throw", SkillDatabase), Helpers.FindSkill("Constitution Saving Throw", SkillDatabase) },
+                new List<WeaponType> { WeaponType.SIMPLE, WeaponType.MARTIAL },
+                new List<Item> { },
+                new List<ArmorWeight> { ArmorWeight.LIGHT, ArmorWeight.MEDIUM, ArmorWeight.SHIELDS },
+                new List<string> { }
+                );
+            featureDatabase.Add(barbarianProficiencies);
 
             //Bard Features
             Feature bardSkillProficiencies = new SelectProficienciesFeature(
@@ -391,6 +417,18 @@ namespace D_D_Character_Creator
                 3);
             featureDatabase.Add(bardSkillProficiencies);
 
+            Feature bardProficiencies = new AddProficienciesFeature(
+                "Bard Proficiencies",
+                "Armor: Light armor\nWeapons: Simple weapons, hand crossbows, longswords, rapiers, shortswords\nTools: Three musical instruments of your choice\nSaving Throws: Dexterity, Charisma",
+                false,
+                1,
+                new List<Skill> { Helpers.FindSkill("Dexterity Saving Throw", SkillDatabase), Helpers.FindSkill("Charaisma Saving Throw", SkillDatabase) },
+                new List<WeaponType> { WeaponType.SIMPLE, WeaponType.HANDCROSSBOW, WeaponType.LONGSWORD, WeaponType.RAPIER, WeaponType.SHORTSWORD },
+                new List<Item> { },
+                new List<ArmorWeight> { ArmorWeight.LIGHT },
+                new List<string> { "Three musical instruments of your choice" }
+                );
+            featureDatabase.Add(bardProficiencies);
 
             //Cleric Features
             Feature clericSkillProficiencies = new SelectProficienciesFeature(
@@ -401,6 +439,19 @@ namespace D_D_Character_Creator
                 new List<Skill> { Helpers.FindSkill("History", SkillDatabase), Helpers.FindSkill("Insight", SkillDatabase), Helpers.FindSkill("Medicine", SkillDatabase), Helpers.FindSkill("Persuasion", SkillDatabase), Helpers.FindSkill("Religion", SkillDatabase) },
                 2);
             featureDatabase.Add(clericSkillProficiencies);
+
+            Feature clericProficiencies = new AddProficienciesFeature(
+                "Cleric Proficiencies",
+                "Armor: Light armor, Medium Armor, Shields\nWeapons: Simple weapons\nTools: none\nSaving Throws: Wisdom, Charisma",
+                false,
+                1,
+                new List<Skill> { Helpers.FindSkill("Wisdom Saving Throw", SkillDatabase), Helpers.FindSkill("Charisma Saving Throw", SkillDatabase) },
+                new List<WeaponType> { WeaponType.SIMPLE },
+                new List<Item> { },
+                new List<ArmorWeight> { ArmorWeight.LIGHT, ArmorWeight.MEDIUM, ArmorWeight.SHIELDS },
+                new List<string> { }
+                );
+            featureDatabase.Add(bardProficiencies);
 
 
             //Druid Features
@@ -413,6 +464,28 @@ namespace D_D_Character_Creator
                 2);
             featureDatabase.Add(druidSkillProficiencies);
 
+            Feature druidProficiencies = new AddProficienciesFeature(
+                "Druid Proficiencies",
+                "Armor: Light armor, Medium armor, shields\nWeapons: Clubs, Daggers, Darts, Javelins, Maces, Quarterstaffs, Scimitars, Sickles, Slings, Spears\nTools: Herbalism Kit\nSaving Throws: Intelligence, Wisdom",
+                false,
+                1,
+                new List<Skill> { Helpers.FindSkill("Intelligence Saving Throw", SkillDatabase), Helpers.FindSkill("Wisdom Saving Throw", SkillDatabase) },
+                new List<WeaponType> { WeaponType.CLUB, WeaponType.DAGGER, WeaponType.DART, WeaponType.JAVELIN, WeaponType.MACE, WeaponType.QUARTERSTAFF, WeaponType.SCIMITAR, WeaponType.SICKLE, WeaponType.SLING, WeaponType.SPEAR },
+                new List<Item> { },
+                new List<ArmorWeight> { ArmorWeight.LIGHT, ArmorWeight.MEDIUM, ArmorWeight.SHIELDS },
+                new List<string> { "Herbalism Kit" }
+                );
+            featureDatabase.Add(druidProficiencies);
+
+            Feature Druidic = new AddLanguagesFeature(
+                "Druidic",
+                "You know Druidic, the secret language of druids. You can speak the language and use it to leave hidden messages. You and others who know this language automatically spot such a message. Others spot the message's presence with a successful DC 15 Wisdom (Perception) check but can't decipher it without magic.",
+                true,
+                1,
+                new List<string> { "Druidic" }
+                );
+            featureDatabase.Add(Druidic);
+
 
             //Fighter Features
             Feature fighterSkillProficiencies = new SelectProficienciesFeature(
@@ -423,6 +496,19 @@ namespace D_D_Character_Creator
                 new List<Skill> { Helpers.FindSkill("Acrobatics", SkillDatabase), Helpers.FindSkill("Animal Handling", SkillDatabase), Helpers.FindSkill("Athletics", SkillDatabase), Helpers.FindSkill("History", SkillDatabase), Helpers.FindSkill("Insight", SkillDatabase), Helpers.FindSkill("Intimidation", SkillDatabase), Helpers.FindSkill("Perception", SkillDatabase), Helpers.FindSkill("Survival", SkillDatabase) },
                 2);
             featureDatabase.Add(fighterSkillProficiencies);
+
+            Feature fighterProficiencies = new AddProficienciesFeature(
+                "Fighter Proficiencies",
+                "Armor: Light armor, Medium armor, Heavy armor, shields\nWeapons: Simple weapons, Martial weapons\nTools: none\nSaving Throws: Strength, Constitution",
+                false,
+                1,
+                new List<Skill> { Helpers.FindSkill("Strength Saving Throw", SkillDatabase), Helpers.FindSkill("Constitution Saving Throw", SkillDatabase) },
+                new List<WeaponType> { WeaponType.SIMPLE, WeaponType.MARTIAL },
+                new List<Item> { },
+                new List<ArmorWeight> { ArmorWeight.LIGHT, ArmorWeight.MEDIUM, ArmorWeight.HEAVY, ArmorWeight.SHIELDS },
+                new List<string> { }
+                );
+            featureDatabase.Add(fighterProficiencies);
 
 
             //Monk Features
@@ -435,6 +521,19 @@ namespace D_D_Character_Creator
                 2);
             featureDatabase.Add(monkSkillProficiencies);
 
+            Feature monkProficiencies = new AddProficienciesFeature(
+                "Monk Proficiencies",
+                "Armor: none\nWeapons: Simple weapons, Shortswords\nTools: Choose one type of artisan's tools or one musical instrument\nSaving Throws: Strength, Dexterity",
+                false,
+                1,
+                new List<Skill> { Helpers.FindSkill("Strength Saving Throw", SkillDatabase), Helpers.FindSkill("Dexterity Saving Throw", SkillDatabase) },
+                new List<WeaponType> { WeaponType.SIMPLE, WeaponType.SHORTSWORD },
+                new List<Item> { },
+                new List<ArmorWeight> { },
+                new List<string> { "Choose one type of artisan's tools or one musical instrument" }
+                );
+            featureDatabase.Add(monkProficiencies);
+
 
             //Paladin Features
             Feature paladinSkillProficiencies = new SelectProficienciesFeature(
@@ -445,6 +544,19 @@ namespace D_D_Character_Creator
                 new List<Skill> { Helpers.FindSkill("Athletics", SkillDatabase), Helpers.FindSkill("Insight", SkillDatabase), Helpers.FindSkill("Intimidation", SkillDatabase), Helpers.FindSkill("Medicine", SkillDatabase), Helpers.FindSkill("Persuasion", SkillDatabase), Helpers.FindSkill("Religion", SkillDatabase) },
                 2);
             featureDatabase.Add(paladinSkillProficiencies);
+
+            Feature paladinProficiencies = new AddProficienciesFeature(
+                "Paladin Proficiencies",
+                "Armor: Light armor, Medium armor, Heavy armor, Shields\nWeapons: Simple weapons, Martial weapons\nTools: none\nSaving Throws: Wisdom, Charisma",
+                false,
+                1,
+                new List<Skill> { Helpers.FindSkill("Wisdom Saving Throw", SkillDatabase), Helpers.FindSkill("Charisma Saving Throw", SkillDatabase) },
+                new List<WeaponType> { WeaponType.SIMPLE, WeaponType.MARTIAL },
+                new List<Item> { },
+                new List<ArmorWeight> { ArmorType.LIGHT, ArmorType.MEDIUM, ArmorType.HEAVY, ArmorType.SHIELDS },
+                new List<string> { }
+                );
+            featureDatabase.Add(paladinProficiencies);
 
 
             //Ranger Features
@@ -457,6 +569,18 @@ namespace D_D_Character_Creator
                 3);
             featureDatabase.Add(rangerSkillProficiencies);
 
+            Feature rangerProficiencies = new AddProficienciesFeature(
+                "Ranger Proficiencies",
+                "Armor: Light armor, Medium armor, Shields\nWeapons: Simple weapons, Martial weapons\nTools: none\nSaving Throws: Strength, Dexterity",
+                false,
+                1,
+                new List<Skill> { Helpers.FindSkill("Strength Saving Throw", SkillDatabase), Helpers.FindSkill("Dexterity Saving Throw", SkillDatabase) },
+                new List<WeaponType> { WeaponType.SIMPLE, WeaponType.MARTIAL },
+                new List<Item> { },
+                new List<ArmorWeight> { ArmorType.LIGHT, ArmorType.MEDIUM, ArmorType.SHIELDS },
+                new List<string> { }
+                );
+            featureDatabase.Add(rangerProficiencies);
 
             //Rogue Features
             Feature rogueSkillProficiencies = new SelectProficienciesFeature(
@@ -501,6 +625,18 @@ namespace D_D_Character_Creator
                 2);
             featureDatabase.Add(sorcererSkillProficiencies);
 
+            Feature sorcererProficiencies = new AddProficienciesFeature(
+                "Sorcerer Proficiencies",
+                "Armor: \nWeapons: Daggers, Darts, Slings, Quarterstaffs, Light crossbows\nTools: none\nSaving Throws: Constitution, Charisma",
+                false,
+                1,
+                new List<Skill> { Helpers.FindSkill("Constitution Saving Throw", SkillDatabase), Helpers.FindSkill("Charisma Saving Throw", SkillDatabase) },
+                new List<WeaponType> { WeaponType.DAGGER, WeaponType.DART, WeaponType.SLING, WeaponType.QUARTERSTAFF, WeaponType.LIGHTCROSSBOW }
+                new List<Item> { },
+                new List<ArmorWeight> { },
+                new List<string> { }
+                );
+            featureDatabase.Add(sorcererProficiencies);
 
             //Warlock Features
             Feature warlockSkillProficiencies = new SelectProficienciesFeature(
@@ -512,6 +648,18 @@ namespace D_D_Character_Creator
                 2);
             featureDatabase.Add(warlockSkillProficiencies);
 
+            Feature warlockProficiencies = new AddProficienciesFeature(
+                "Warlock Proficiencies",
+                "Armor: Light armor\nWeapons: Simple weapons\nTools: none\nSaving Throws: Wisdom, Charisma",
+                false,
+                1,
+                new List<Skill> { Helpers.FindSkill("Wisdom Saving Throw", SkillDatabase), Helpers.FindSkill("Charisma Saving Throw", SkillDatabase) },
+                new List<WeaponType> { WeaponType.SIMPLE }
+                new List<Item> { },
+                new List<ArmorWeight> { ArmorType.LIGHT },
+                new List<string> { }
+                );
+            featureDatabase.Add(warlockProficiencies);
 
             //Wizard Features
             Feature wizardSkillProficiencies = new SelectProficienciesFeature(
@@ -523,6 +671,63 @@ namespace D_D_Character_Creator
                 2);
             featureDatabase.Add(wizardSkillProficiencies);
 
+            Feature wizardProficiencies = new AddProficienciesFeature(
+                "Wizard Proficiencies",
+                "Armor: \nWeapons: Daggers, Darts, Slings, Quarterstaffs, Light crossbows\nTools: none\nSaving Throws: Intelligence, Wisdom",
+                false,
+                1,
+                new List<Skill> { Helpers.FindSkill("Intelligence Saving Throw", SkillDatabase), Helpers.FindSkill("Wisdom Saving Throw", SkillDatabase) },
+                new List<WeaponType> { WeaponType.DAGGER, WeaponType.DART, WeaponType.SLING, WeaponType.QUARTERSTAFF, WeaponType.LIGHTCROSSBOW }
+                new List<Item> { },
+                new List<ArmorWeight> { },
+                new List<string> { }
+                );
+            featureDatabase.Add(wizardProficiencies);
+
+        //Race Features
+            //Chameleon Features
+
+            //Dragonborn Features
+            Feature DragonbornLanguages = new AddLanguagesFeature(
+              "Languages (dragonborn)",
+              "You can speak, read, and write Common and Draconic.",
+              false,
+              1,
+              new List<string> { "Common", "Draconic" }
+              );
+            featureDatabase.Add(DragonbornLanguages);
+
+            //Dwarf Features
+            Feature stonecunning = new AddProficienciesFeature(
+               "Stonecunning",
+               "You have proficiency in the History skill.",
+               true,
+               1,
+               new List<Skill> { Helpers.FindSkill("History", SkillDatabase) }
+               );
+            featureDatabase.Add(stonecunning);
+
+            Feature DwarfLanguages = new AddLanguagesFeature(
+              "Languages (dragonborn)",
+              "You can speak, read, and write Common and Dwarvish.",
+              false,
+              1,
+              new List<string> { "Common", "Dwarvish" }
+              );
+            featureDatabase.Add(DragonbornLanguages);
+
+            Feature dwarfProficiencies = new AddProficienciesFeature(
+                "Dwarf Proficiencies",
+                "Armor: none \nWeapons: Battleaxe, Handaxe, Light hammer, Warhammer\nTools: Artisan's tools of your choice\nSaving Throws: none",
+                false,
+                1,
+                new List<Skill> { },
+                new List<WeaponType> { WeaponType.BATTLEAXE, WeaponType.HANDAXE, WeaponType.LIGHTHAMMER, WeaponType.WARHAMMER }
+                new List<Item> { },
+                new List<ArmorWeight> { },
+                new List<string> { "Artisan's tools of your choice" }
+                );
+            featureDatabase.Add(dwarfProficiencies);
 
             //Elf Features
             Feature keenSenses = new AddProficienciesFeature(
@@ -542,6 +747,68 @@ namespace D_D_Character_Creator
                new List<string> { "Common", "Elven" }
                );
             featureDatabase.Add(ElfLanguages);
+
+            //Gnome Features
+            Feature gnomeProficiencies = new AddProficienciesFeature(
+                "Gnome Proficiencies",
+                "Armor: none \nWeapons: none\nTools: Tinker's tools\nSaving Throws: none",
+                false,
+                1,
+                new List<Skill> { },
+                new List<WeaponType> { }
+                new List<Item> { },
+                new List<ArmorWeight> { },
+                new List<string> { "Tinker's tools" }
+                );
+            featureDatabase.Add(gnomeProficiencies);
+
+            Feature GnomeLanguages = new AddLanguagesFeature(
+              "Languages (Gnome)",
+              "You can speak, read, and write Common and Gnomish.",
+              false,
+              1,
+              new List<string> { "Common", "Gnomish" }
+              );
+            featureDatabase.Add(GnomeLanguages);
+
+            //Goliath Features
+            Feature littleGiant = new AddProficienciesFeature(
+               "Little Giant",
+               "You have proficiency in the Athletics skill.",
+               true,
+               1,
+               new List<Skill> { Helpers.FindSkill("Athletics", SkillDatabase) }
+               );
+            featureDatabase.Add(littleGiant);
+
+            Feature GoliathLanguages = new AddLanguagesFeature(
+              "Languages (Gnome)",
+              "You can speak, read, and write Common and Giant.",
+              false,
+              1,
+              new List<string> { "Common", "Giant" }
+              );
+            featureDatabase.Add(GoliathLanguages);
+
+            //Halfling Features
+            Feature HalflingLanguages = new AddLanguagesFeature(
+              "Languages (Halfling)",
+              "You can speak, read, and write Common and Halfling.",
+              false,
+              1,
+              new List<string> { "Common", "Halfling" }
+              );
+            featureDatabase.Add(HalflingLanguages);
+
+            //Tiefling Features
+            Feature TieflingLanguages = new AddLanguagesFeature(
+              "Languages (Tiefling)",
+              "You can speak, read, and write Common and Infernal.",
+              false,
+              1,
+              new List<string> { "Common", "Infernal" }
+              );
+            featureDatabase.Add(TieflingLanguages);
         }
     }
 
